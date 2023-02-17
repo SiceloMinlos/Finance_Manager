@@ -1,0 +1,40 @@
+.input {
+    @apply flex border rounded-xl;
+    position: relative;
+}
+
+.input_text {
+    @apply w-full py-4 border rounded-l-md text-center focus:outline-none  border-gray-500 border-r-0;
+}
+
+.submit_button {
+    @apply w-full bg-indigo-400 rounded-md py-3 text-white;
+    transition: 0.5s;
+}
+
+.gmail_button {
+    @apply w-full border py-3 flex justify-center gap-2 rounded-md bg-red-300;
+    transition: 0.5s;
+}
+
+.submit_button:hover {
+    @apply bg-indigo-600
+}
+
+.gmail_button:hover {
+    @apply bg-red-400
+}
+
+.input_text + * {
+    @apply border border-l-0 rounded-r-md border-gray-500;
+    color: #93a0e8;
+}
+
+.input_text:focus + * {
+    color: #5C6BC0;
+}
+
+.input_text:not([type=email]) ~ span:hover * {
+    cursor: pointer;
+    color: #5C6BC0;
+}
