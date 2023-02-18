@@ -1,0 +1,8 @@
+.hero_button {
+    @apply w-full bg-indigo-400 rounded-md py-3 px-3 text-white;
+    transition: 0.5s;
+}
+
+.hero_button:hover {
+    @apply bg-indigo-500;
+}

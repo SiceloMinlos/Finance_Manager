@@ -5,6 +5,7 @@ import styles from "../styles/Form.module.css"
 import Image from "next/image";
 import { MdEmail, MdOutlineRemoveRedEye, MdPerson} from "react-icons/md";
 import { useState } from "react";
+import { UseSession, signIn, signOut } from "next-auth/react";
 
 export default function Register() {
 
@@ -45,13 +46,13 @@ export default function Register() {
 
                     {/* Submit */}
                     <div className={styles.submit_button}>
-                        <button type="submit">
+                    <button type="button">
                             Register
                         </button>
                     </div>
 
                     <div className={styles.gmail_button}>
-                        <button type="button">
+                        <button onClick={() => signIn()} type="button">
                             Register with Gmail
                         </button>
                         <Image src={"/assets/google.svg"} width={25} height={25}></Image>

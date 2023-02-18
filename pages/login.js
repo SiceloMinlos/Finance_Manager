@@ -5,14 +5,19 @@ import styles from "../styles/Form.module.css"
 import Image from "next/image";
 import { MdEmail, MdOutlineRemoveRedEye, } from "react-icons/md";
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 
 export default function Login() {
 
     const [show, setShow] = useState(false)
 
+    const handleGoogleSignIn = () => {
+        signIn("google", { callbackUrl: "http://localhost:3000/dashboard" });
+    };
+
     return (
         <Layout>
-            <Head>                          //allows us to create a title for the page
+            <Head>                          
                 <title>Login</title>
             </Head>
 
@@ -22,7 +27,6 @@ export default function Login() {
                     <p className="w-3/4 mx-auto text-gray-500">Log in</p>
                 </div>
 
-                {/* form */}
                 <form className="flex flex-col gap-5">
                     <div className={styles.input}>
                         <input type="email" name="email" placeholder="Email" className={styles.input_text}/>
@@ -37,7 +41,6 @@ export default function Login() {
                         </span>
                     </div>
 
-                    {/* Submit */}
                     <div className={styles.submit_button}>
                         <button type="submit">
                             Login
@@ -45,14 +48,13 @@ export default function Login() {
                     </div>
 
                     <div className={styles.gmail_button}>
-                        <button type="button">
+                        <button onClick={handleGoogleSignIn} type="button">
                             Login with Gmail
                         </button>
                         <Image src={"/assets/google.svg"} width={25} height={25}></Image>
                     </div>
                 </form>
 
-                {/* bottom */}
                 <p className="text-center text-gray-500">Don't have an account? <Link href={'/register'} className="text-blue-700">Sign up</Link></p>
 
             </section>

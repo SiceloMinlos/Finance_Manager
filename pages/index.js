@@ -1,8 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+import hero_styles from '../styles/Hero.module.css'
+import { useState } from 'react'
 
 export default function Home() {
+
+  // const session
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,16 +17,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='flex min-h-screen bg-gray-500 justify-center items-center'>
-        <div className='w-3/5 h-3/4 bg-white lg:grid-cols-2'>
-          <div>
+      <div className='flex min-h-screen min  justify-center items-center'>
+        <div className='lg:grid-cols-2 flex flex-row' >
+          <div id='first-div' className='w-3/5 p-10 flex flex-col justify-center items-center'>
             <h1 className="text-5xl font-bold">
-              Hello world!
+              Finance <br></br><span className='text-indigo-400'>Manager</span>
             </h1>
+            <p className='pt-10 text-left'>This is just dummmy text for the application This is just dummmy text for the application</p>
+            <div className='pt-10'>
+              <Link href={'/login'}><button className={hero_styles.hero_button}>Get Started</button></Link>
+            </div>
           </div>
-          <div className='right flex flex-col justify-evenly'>
+          <div className='w-3/5 p-10'>
             <h1 className=" text-5xl font-bold">
-              Image
+            <Image className='hover:scale-105 ease-out duration-1000' src={"/assets/hero_img.png"} width={450} height={450}></Image>
             </h1>
           </div>
         </div>
